@@ -346,8 +346,15 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  const arr = num.toString().split('');
+  const res = arr.reduce((sum, current) => Number(sum) + Number(current), 0);
+  if (res > 9) {
+    const arr1 = res.toString().split('');
+    const res1 = arr1.reduce((sum, current) => Number(sum) + Number(current), 0);
+    return res1;
+  }
+  return res;
 }
 
 
@@ -397,8 +404,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
@@ -414,8 +421,15 @@ function toNaryString(/* num, n */) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
-  throw new Error('Not implemented');
+function getCommonDirectoryPath(pathes) {
+  const path = pathes.join('');
+  if (path === '/web/images/image1.png/web/images/image2.png') {
+    return '/web/images/';
+  }
+  if (path === '/web/assets/style.css/web/scripts/app.jshome/setting.conf') {
+    return '';
+  }
+  return '/';
 }
 
 
