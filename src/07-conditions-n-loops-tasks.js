@@ -456,17 +456,17 @@ function getMatrixProduct(A, B) {
   const colsA = A[0].length;
   const rowsB = B.length;
   const colsB = B[0].length;
-  const C = [];
+  const res = [];
   if (colsA !== rowsB) return false;
-  for (let i = 0; i < rowsA; i += 1) C[i] = [];
+  for (let i = 0; i < rowsA; i += 1) res[i] = [];
   for (let k = 0; k < colsB; k += 1) {
     for (let i = 0; i < rowsA; i += 1) {
       let t = 0;
       for (let j = 0; j < rowsB; j += 1) t += A[i][j] * B[j][k];
-      C[i][k] = t;
+      res[i][k] = t;
     }
   }
-  return C;
+  return res;
 }
 
 
