@@ -457,7 +457,9 @@ function getMatrixProduct(m1, m2) {
   const rowsB = m2.length;
   const colsB = m2[0].length;
   const res = [];
-  if (colsA !== rowsB) return false;
+  if (colsA !== rowsB) {
+    return false;
+  }
   for (let i = 0; i < rowsA; i += 1) res[i] = [];
   for (let k = 0; k < colsB; k += 1) {
     for (let i = 0; i < rowsA; i += 1) {
